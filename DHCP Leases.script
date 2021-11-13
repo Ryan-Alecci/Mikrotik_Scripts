@@ -1,0 +1,2 @@
+:foreach dev in=[/ip dhcp-server lease print detail as-value ] do={
+/log info message=$dev}
