@@ -1,2 +1,3 @@
-:foreach dev in=[/ip dhcp-server lease print detail as-value ] do={
-/log info message=$dev}
+:for item from=0 to=([:len [/ip dhcp-server lease find .id]]- 1) do= {
+:log info message="MAC=$[/ip dhcp-server lease get number=$item value-name=mac-address],IPADDR=$[/ip dhcp-server lease get number=$item value-name=address],HOSTNAME=$[/ip dhcp-server lease get number=$item value-name=host-name]"
+}
